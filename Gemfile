@@ -41,3 +41,4 @@ gem "mocha", :group => :test
 
 
 gem "bcrypt-ruby", :require => "bcrypt"
+gem "therubyracer"
