@@ -16,6 +16,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem "nifty-generators", :group => :development
+
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -34,3 +36,7 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+gem "mocha", :group => :test
+
+
+gem "bcrypt-ruby", :require => "bcrypt"
