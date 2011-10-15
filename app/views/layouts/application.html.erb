@@ -14,6 +14,21 @@
 	        Logged in as <%= current_user.email %>
 	        <%= link_to "Log out", logout_path %>
 	      <% else %>
+
+			<p> Log in now! </p>
+			
+			<%= form_tag sessions_path do %>
+			  <p>
+			    <%= label_tag :login, "Username or Email Address" %><br />
+			    <%= text_field_tag :login, params[:login] %>
+			  </p>
+			  <p>
+			    <%= label_tag :password %><br />
+			    <%= password_field_tag :password %>
+			  </p>
+			  <p><%= submit_tag "Log in" %></p>
+			<% end %>
+
 	        <%= link_to "Sign up", signup_path %> or
 	        <%= link_to "Log in", login_path %>
 	      <% end %>
