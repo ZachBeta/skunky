@@ -46,4 +46,7 @@ class YoutubeGetter < Youtube::Youtube_it
 		end
 		found
 	end
+	def latest(n)
+		YoutubeVideo.order("date").limit(n)
+	end
 end
