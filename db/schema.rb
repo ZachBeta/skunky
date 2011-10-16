@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111016010826) do
+ActiveRecord::Schema.define(:version => 20111016012423) do
 
   create_table "pitches", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20111016010826) do
     t.boolean  "public_visible"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "upvotes", :force => true do |t|

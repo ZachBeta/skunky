@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+  	<th>userid</th>
     <th>Name</th>
     <th>Details</th>
     <th>Youtube link</th>
@@ -15,6 +16,7 @@
 
 <% @pitches.each do |pitch| %>
   <tr>
+  	<td><%= pitch.user_id %>
     <td><%= pitch.name %></td>
     <td><%= pitch.details %></td>
     <td><%= pitch.youtube_link %></td>

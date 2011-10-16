@@ -40,16 +40,21 @@ class PitchesController < ApplicationController
   # POST /pitches
   # POST /pitches.json
   def create
-    @pitch = Pitch.new(params[:pitch])
-
-    respond_to do |format|
-      if @pitch.save
-        format.html { redirect_to @pitch, notice: 'Pitch was successfully created.' }
-        format.json { render json: @pitch, status: :created, location: @pitch }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @pitch.errors, status: :unprocessable_entity }
+    if current_user
+      @pitch = Pitch.new(params[:pitch])
+      @pitch.user_id = current_user.id
+  
+      respond_to do |format|
+        if @pitch.save
+          format.html { redirect_to @pitch, notice: 'Pitch was successfully created.' }
+          format.json { render json: @pitch, status: :created, location: @pitch }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @pitch.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to pitches_path, notice: 'Y U NO LOGIN?!'
     end
   end
 
