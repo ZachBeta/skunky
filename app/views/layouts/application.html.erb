@@ -22,16 +22,11 @@
 			  <p>
 			    <%= label_tag :login, "Username or Email Address" %><br />
 			    <%= text_field_tag :login, params[:login] %>
-			  </p>
-			  <p>
 			    <%= label_tag :password %><br />
 			    <%= password_field_tag :password %>
+				<%= submit_tag "Log in" %>
 			  </p>
-			  <p><%= submit_tag "Log in" %></p>
 			<% end %>
-
-	        <%= link_to "Sign up", signup_path %> or
-	        <%= link_to "Log in", login_path %>
 	      <% end %>
       </div>
       <% flash.each do |name, msg| %>
