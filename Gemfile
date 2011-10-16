@@ -44,5 +44,3 @@ gem "mocha", :group => :test
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "therubyracer"
 gem 'youtube_it'
-gem "rake", "0.8.7" #forcing older rake for annotate
-gem 'annotate', '2.4.1.beta1', :group => :development
