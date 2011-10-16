@@ -37,6 +37,22 @@ class PitchesController < ApplicationController
   def edit
     @pitch = Pitch.find(params[:id])
   end
+  
+  def upvote
+    if current_user
+      @upvote = Upvote.new
+      @upvote.user_id = current_user.id
+      @upvote.pitch_id = params[:id]
+  
+      respond_to do |format|
+        format.html { redirect_to pitches_path}# new.html.erb
+        format.json { render json: @upvote }
+      end
+
+    else
+      redirect_to pitches_path, notice: 'Bro, you best log in first'
+    end
+  end
 
   # POST /pitches
   # POST /pitches.json

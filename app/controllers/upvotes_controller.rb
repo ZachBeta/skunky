@@ -26,7 +26,7 @@ class UpvotesController < ApplicationController
   def new
     @upvote = Upvote.new
     @upvote.user_id = current_user.id
-    @upvote.pitch_id = params[:pitch].id
+    @upvote.pitch_id = params[:pitch]
 
     respond_to do |format|
       format.html # new.html.erb

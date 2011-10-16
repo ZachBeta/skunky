@@ -1,7 +1,4 @@
 Skunky::Application.routes.draw do
-  resources :upvotes
-
-  resources :pitches
 
   root :to => "home#index"
 
@@ -13,9 +10,16 @@ Skunky::Application.routes.draw do
 
   match 'login' => 'sessions#new', :as => :login
 
+  match 'pitches/:id/upvote' => 'pitches#vote', :as => :upboats
+
   resources :sessions
 
   resources :users
+  
+  resources :upvotes
+
+  resources :pitches
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
