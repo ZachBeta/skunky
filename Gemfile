@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 
+
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
@@ -42,3 +43,5 @@ gem "mocha", :group => :test
 
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "therubyracer"
+gem "rake", "0.8.7" #forcing older rake for annotate
+gem 'annotate', '2.4.1.beta1', :group => :development

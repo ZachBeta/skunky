@@ -9,3 +9,15 @@ two:
   user_id: 1
   pitch_id: 1
   comment: MyText
+# == Schema Information
+#
+# Table name: upvotes
+#
+#  id         :integer         not null, primary key
+#  user_id    :integer
+#  pitch_id   :integer
+#  comment    :text
+#  created_at :datetime
+#  updated_at :datetime
+#
+
