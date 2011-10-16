@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @pitch.name %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @pitch.details %>
+</p>
+
+<p>
+  <b>Youtube link:</b>
+  <%= @pitch.youtube_link %>
+</p>
+
+<p>
+  <b>Tech need:</b>
+  <%= @pitch.tech_need %>
+</p>
+
+<p>
+  <b>Biz need:</b>
+  <%= @pitch.biz_need %>
+</p>
+
+<p>
+  <b>Public visible:</b>
+  <%= @pitch.public_visible %>
+</p>
+
+
+<%= link_to 'Edit', edit_pitch_path(@pitch) %> |
+<%= link_to 'Back', pitches_path %>

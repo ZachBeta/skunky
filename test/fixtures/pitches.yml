@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  details: MyText
+  youtube_link: MyString
+  tech_need: 
+  biz_need: 
+  public_visible: false
+
+two:
+  name: MyString
+  details: MyText
+  youtube_link: MyString
+  tech_need: 
+  biz_need: 
+  public_visible: false
