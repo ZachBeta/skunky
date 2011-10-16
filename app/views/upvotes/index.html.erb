@@ -1,0 +1,27 @@
+<h1>Listing upvotes</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Pitch</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @upvotes.each do |upvote| %>
+  <tr>
+    <td><%= upvote.user_id %></td>
+    <td><%= upvote.pitch_id %></td>
+    <td><%= upvote.comment %></td>
+    <td><%= link_to 'Show', upvote %></td>
+    <td><%= link_to 'Edit', edit_upvote_path(upvote) %></td>
+    <td><%= link_to 'Destroy', upvote, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Upvote', new_upvote_path %>

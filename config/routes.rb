@@ -1,4 +1,8 @@
 Skunky::Application.routes.draw do
+  resources :upvotes
+
+  resources :pitches
+
   root :to => "home#index"
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user

@@ -1,8 +1,10 @@
 <h1>Welcome to StarterTribe!</h1>
 <h2>Pitch an idea, get feedback, form a team, and launch your business</h2>
-<p>StarterTrybe is an online community to cultivate new ideas into strong businesses.</p>
+<p>StarterTribe is an online community to cultivate new ideas into strong businesses.</p>
 
-<% if !current_user %>
+<% if current_user %>
+	<%= link_to 'TO THE PITCHES!', pitches_path %>
+<% else %>
 	<p> Sign up here: </p>
 	<% @user = User.new %>
 	<%= form_for @user do |f| %>
@@ -26,3 +28,4 @@
 	  <p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
 	<% end %>
 <% end %>
+

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "StarterTribe" %></title>
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
@@ -9,6 +9,7 @@
   </head>
   <body>
     <div id="container">
+      <div style="float:right"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="startertribe">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div>
       <div id="user_nav">
 	      <% if current_user %>
 	        Logged in as <%= current_user.email %>
@@ -21,16 +22,11 @@
 			  <p>
 			    <%= label_tag :login, "Username or Email Address" %><br />
 			    <%= text_field_tag :login, params[:login] %>
-			  </p>
-			  <p>
 			    <%= label_tag :password %><br />
 			    <%= password_field_tag :password %>
+				<%= submit_tag "Log in" %>
 			  </p>
-			  <p><%= submit_tag "Log in" %></p>
 			<% end %>
-
-	        <%= link_to "Sign up", signup_path %> or
-	        <%= link_to "Log in", login_path %>
 	      <% end %>
       </div>
       <% flash.each do |name, msg| %>

@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  details: MyText
+  youtube_link: MyString
+  tech_need: 
+  biz_need: 
+  public_visible: false
+
+two:
+  name: MyString
+  details: MyText
+  youtube_link: MyString
+  tech_need: 
+  biz_need: 
+  public_visible: false
+# == Schema Information
+#
+# Table name: pitches
+#
+#  id             :integer         not null, primary key
+#  name           :string(255)
+#  details        :text
+#  youtube_link   :string(255)
+#  tech_need      :integer
+#  biz_need       :integer
+#  public_visible :boolean
+#  created_at     :datetime
+#  updated_at     :datetime
+#  user_id        :integer
+#
+
