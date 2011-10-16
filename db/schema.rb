@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111016012423) do
+ActiveRecord::Schema.define(:version => 20111016032621) do
 
   create_table "pitches", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(:version => 20111016012423) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "ytvideos", :force => true do |t|
+    t.string  "date"
+    t.text    "title"
+    t.text    "embed_url"
+    t.integer "length"
   end
 
 end
