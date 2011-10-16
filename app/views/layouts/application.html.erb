@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for?(:title) ? yield(:title) : "StarterTribe" %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tag %>
-    <%= yield(:head) %>
-  </head>
-  <body>
-    <div id="container">
-      <div style="float:right"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="startertribe">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div>
-      <div id="user_nav">
-	      <% if current_user %>
-	        Logged in as <%= current_user.email %>
-	        <%= link_to "Log out", logout_path %>
-	      <% else %>
-
-			<p> Log in now! </p>
-			
-			<%= form_tag sessions_path do %>
-			  <p>
-			    <%= label_tag :login, "Username or Email Address" %><br />
-			    <%= text_field_tag :login, params[:login] %>
-			    <%= label_tag :password %><br />
-			    <%= password_field_tag :password %>
-				<%= submit_tag "Log in" %>
-			  </p>
-			<% end %>
-	      <% end %>
-      </div>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
-      <%= content_tag :h1, yield(:title) if show_title? %>
-      <%= yield %>
-    </div>
-  </body>
+	<head>
+		<title><%= content_for?(:title) ? yield(:title) : "StarterTribe" %></title>
+		<%= stylesheet_link_tag "application" %>
+		<%= stylesheet_link_tag "960.css"%>
+		<%= stylesheet_link_tag "reset.css"%>
+		<%= stylesheet_link_tag "960.css"%>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tag %>
+		<%= yield(:head) %>
+		<style>
+			.color {
+				background: #c0c0c0;
+			}
+			#header {
+				height: 100px;
+				padding-top: 15px;
+			}
+			#logo {
+				height: 100px;
+			}
+			#main {
+				padding: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container_12" id="header">
+			<div id="logo" class="grid_5 color"></div>
+			<div id="user_nav" class="grid_3 color push_4">
+				<% if current_user %>
+				Logged in as <%= current_user.email %>
+				<%= link_to "Log out", logout_path %>
+				<% else %>
+				<p>
+					Log in now!
+				</p>
+				<%= form_tag sessions_path do %>
+				<p>
+					<%= label_tag :login, "Username or Email Address" %>
+					<br />
+					<%= text_field_tag :login, params[:login] %>
+					<%= label_tag :password %>
+					<br />
+					<%= password_field_tag :password %>
+					<%= submit_tag "Log in" %>
+				</p>
+				<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<%= yield %>
+	</body>
 </html>

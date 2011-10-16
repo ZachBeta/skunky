@@ -1,31 +1,59 @@
-<h1>Welcome to StarterTribe!</h1>
-<h2>Pitch an idea, get feedback, form a team, and launch your business</h2>
-<p>StarterTribe is an online community to cultivate new ideas into strong businesses.</p>
-
-<% if current_user %>
-	<%= link_to 'TO THE PITCHES!', pitches_path %>
-<% else %>
-	<p> Sign up here: </p>
-	<% @user = User.new %>
-	<%= form_for @user do |f| %>
-	  <%= f.error_messages %>
-	  <p>
-	    <%= f.label :username %><br />
-	    <%= f.text_field :username %>
-	  </p>
-	  <p>
-	    <%= f.label :email, "Email Address" %><br />
-	    <%= f.text_field :email %>
-	  </p>
-	  <p>
-	    <%= f.label :password %><br />
-	    <%= f.password_field :password %>
-	  </p>
-	  <p>
-	    <%= f.label :password_confirmation, "Confirm Password" %><br />
-	    <%= f.password_field :password_confirmation %>
-	  </p>
-	  <p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
-	<% end %>
+<% flash.each do |name, msg| %>
+<%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
+<%= content_tag :h1, yield(:title) if show_title? %>
+
+<div id="main" class="container_12">
+	<div id="copytext" class="grid_12" style="text-align: center;">
+			<h1>Welcome to StarterTribe!</h1>
+		<h2>Pitch an idea, get feedback, form a team, and launch your business</h2>
+		<p>
+			StarterTribe is an online community to cultivate new ideas into strong businesses.
+		</p>	
+	</div>
+	<div id="video" class="grid_8 color">
+		<iframe width="560" height="315" src="http://www.youtube.com/embed/hO6FZ4T2aGU" frameborder="0" allowfullscreen></iframe>
+	</div>
+	<div id="logintext" class="grid_3 push_1">
+<% if current_user %>
+<%= link_to 'TO THE PITCHES!', pitches_path %>
+<% else %>
+<p>
+	Sign up here:
+</p>
+<% @user = User.new %>
+<%= form_for @user do |f| %>
+<%= f.error_messages %>
+<p>
+	<%= f.label :username %>
+	<br />
+	<%= f.text_field :username %>
+</p>
+<p>
+	<%= f.label :email, "Email Address" %>
+	<br />
+	<%= f.text_field :email %>
+</p>
+<p>
+	<%= f.label :password %>
+	<br />
+	<%= f.password_field :password %>
+</p>
+<p>
+	<%= f.label :password_confirmation, "Confirm Password" %>
+	<br />
+	<%= f.password_field :password_confirmation %>
+</p>
+<p>
+	<%= f.submit (@user.new_record? ? "Sign up" : "Update") %>
+</p>
+<% end %>
+<% end %> 
+	</div>
+</div>
+
+
+<div style="float:right">
+	<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="startertribe">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+</div>
 
