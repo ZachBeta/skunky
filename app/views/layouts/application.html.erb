@@ -10,8 +10,27 @@
 		<%= csrf_meta_tag %>
 		<%= yield(:head) %>
 		<style>
+			h1, h2, h3, h4 {font-weight: normal;}
+			h1 {font-size: 125%;}
+			h2 {font-size: 120%;}
+			h3 {font-size: 115%;}
+			h4 {font-size: 110%;}
+			object{border:0; margin:0; padding: 0;}
+			.description_text{
+				color:white;
+			}
+			.small{
+				font-size: 80%;
+			}
 			.color {
 				background: #c0c0c0;
+			}
+			.quote{
+				height: 150px;
+			}
+			.quote_block{
+				margin-top: 15px;
+				color: #004667;
 			}
 			#header {
 				height: 100px;
@@ -22,29 +41,52 @@
 			}
 			#main {
 				padding: 15px;
+				background-color: #e0ffff;
+				border-radius: 5px;
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				
+				box-shadow: 5px 5px 5px 5px #c0c0c0;
 			}
+			#user_nav {
+
+			}
+			.description_text_center{
+							text-align: center; 	
+			}
+			#logintext {
+				height: 300px; 
+
+				margin-left: 70px ! important;
+				 margin-top: 10px;
+				text-align: right;
+				background-color: #004667;
+				padding: 8px;
+			}
+			.title {
+				color: orange;
+			}
+			
 		</style>
 	</head>
 	<body>
 		<div class="container_12" id="header">
-			<div id="logo" class="grid_6 color">
+			<div id="logo" class="grid_6">
 				<%= image_tag("logo.png") %>
 			</div>
-			<div id="user_nav" class="grid_3 color push_3">
+			<div id="user_nav" class="grid_3 push_3">
 				<% if current_user %>
-				Logged in as <%= current_user.email %>
-				<%= link_to "Log out", logout_path %>
-				<% else %>
-				<p>
-					Log in now!
+				<p class="title">
+					Logged in as <br />
+					<%= current_user.email %> <br />
+					<%= link_to "(Log out)", logout_path %>
 				</p>
-				<%= form_tag sessions_path do %>
-				<p>
-					<%= label_tag :login, "Username or Email Address" %>
-					<br />
+				<% else %>
+				<p class="title">					
+					Log in now!
+					<%= form_tag sessions_path do %>
+
 					<%= text_field_tag :login, params[:login] %>
-					<%= label_tag :password %>
-					<br />
 					<%= password_field_tag :password %>
 					<%= submit_tag "Log in" %>
 				</p>

@@ -1,55 +1,80 @@
+<div class="container_12">
 <% flash.each do |name, msg| %>
 <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 <%= content_tag :h1, yield(:title) if show_title? %>
-
+</div>
 <div id="main" class="container_12">
 	<div id="copytext" class="grid_12" style="text-align: center;">
-			<h1>Welcome to StarterTribe!</h1>
+		<h1>Welcome to StarterTribe!</h1>
 		<h2>Pitch an idea, get feedback, form a team, and launch your business</h2>
 		<p>
 			StarterTribe is an online community to cultivate new ideas into strong businesses.
-		</p>	
+		</p>
 	</div>
-	<div id="video" class="grid_8 color">
-		<iframe width="560" height="315" src="http://www.youtube.com/embed/hO6FZ4T2aGU" frameborder="0" allowfullscreen></iframe>
+	<div id="video" class="grid_5" style="margin-top: 10px;">
+		<object width="420" height="315">
+			<param name="movie" value="http://www.youtube.com/v/wiA41uKplno?version=3&amp;hl=en_US">
+			</param>
+			<param name="allowFullScreen" value="true">
+			</param>
+			<param name="allowscriptaccess" value="always">
+			</param>
+			<embed src="http://www.youtube.com/v/wiA41uKplno?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="420" height="315" allowscriptaccess="always" allowfullscreen="true"></embed>
+		</object>
 	</div>
-	<div id="logintext" class="grid_3 push_1">
-<% if current_user %>
-<%= link_to 'TO THE PITCHES!', pitches_path %>
-<% else %>
-<p>
-	Sign up here:
-</p>
-<% @user = User.new %>
-<%= form_for @user do |f| %>
-<%= f.error_messages %>
-
-<p>
-	<%= f.label :email, "Email Address" %>
-	<br />
+	<div id="logintext" class="grid_6" >
+	<% if current_user %>
+	<p class="description_text_center">
+		Thank you for registering!  We will notify you when we launch!
+	</p>
+	<% else %>
+	<% @user = User.new %>
+	<%= form_for @user do |f| %>
+	<%= f.error_messages %>
+	<h2 class="title">Sign Up Here</h2>
+	<p class="description_text">
+	Join New England's revoulation new startup community.  Find team mates, mentors and investors!
+	</p>
+	<p>
+	<%= f.label :email, "Email Address", :class => "title small" %>
 	<%= f.text_field :email %>
-</p>
-<p>
-	<%= f.label :password %>
-	<br />
+	</p>
+	<p>
+	<%= f.label :password, :class => "title small" %>
 	<%= f.password_field :password %>
-</p>
-<p>
-	<%= f.label :password_confirmation, "Confirm Password" %>
-	<br />
+	</p>
+	<p>
+	<%= f.label :password_confirmation, "Confirm Password", :class => "title small" %>
 	<%= f.password_field :password_confirmation %>
-</p>
-<p>
+	</p>
+	<p>
 	<%= f.submit (@user.new_record? ? "Sign up" : "Update") %>
-</p>
-<% end %>
-<% end %> 
+	</p>
+	<% end %>
+	<% end %>
 	</div>
-</div>
-
-
-<div style="float:right">
+	<div class="clear"></div>
+	<div class="quote_block">
+		<div class="grid_3 quote">
+			"[It] gave us something to analyze and get feedback from. HUGELY VALUABLE." - Brian
+		</div>
+	
+		<div class="grid_3 quote">
+			"This is really valuable for  developing my business model." - Alexandria
+		</div>
+		
+		<div class="grid_3 quote">
+			"This is a supportive community that enables new entrepreneurs to connect, unbounded by time or space." - Erik
+		</div>
+		
+		<div class="grid_3 quote">
+			"I learned a lot from uploadeing my pitch. The process helped me a lot." - Joe
+		</div>
+	</div>
+	</div>
+	
+	
+	<div style="float:right">
 	<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="startertribe">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-</div>
-
+	</div>
