@@ -25,6 +25,7 @@ class PitchesController < ApplicationController
   # GET /pitches/new.json
   def new
     @pitch = Pitch.new
+    @pitch.public_visible = true
 
     respond_to do |format|
       format.html # new.html.erb
