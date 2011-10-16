@@ -34,13 +34,15 @@ class YoutubeGetter < Youtube::Youtube_it
 	end
 	def search ( tags = [ "my-awesome-tribe-pitch"] )
 		found = []
-		while true
+		done? = false
+		while not done?
 			youtube.videos_by(:tags => tags).videos.each
 			{|vid| 
 			   value = maybe_create? vid
 				if value
 					found.push value
 				else
+					done? = true
 					break
 				end}
 		end
