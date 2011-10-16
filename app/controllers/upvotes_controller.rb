@@ -25,6 +25,8 @@ class UpvotesController < ApplicationController
   # GET /upvotes/new.json
   def new
     @upvote = Upvote.new
+    @upvote.user_id = current_user.id
+    @upvote.pitch_id = params[:pitch].id
 
     respond_to do |format|
       format.html # new.html.erb
