@@ -1,4 +1,6 @@
 Skunky::Application.routes.draw do
+  resources :upvotes
+
   resources :pitches
 
   root :to => "home#index"

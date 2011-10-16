@@ -1,0 +1,29 @@
+<%= form_for(@upvote) do |f| %>
+  <% if @upvote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@upvote.errors.count, "error") %> prohibited this upvote from being saved:</h2>
+
+      <ul>
+      <% @upvote.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :pitch_id %><br />
+    <%= f.number_field :pitch_id %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
