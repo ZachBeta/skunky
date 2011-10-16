@@ -24,11 +24,7 @@
 <% @user = User.new %>
 <%= form_for @user do |f| %>
 <%= f.error_messages %>
-<p>
-	<%= f.label :username %>
-	<br />
-	<%= f.text_field :username %>
-</p>
+
 <p>
 	<%= f.label :email, "Email Address" %>
 	<br />
