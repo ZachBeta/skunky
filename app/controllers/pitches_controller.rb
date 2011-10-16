@@ -43,13 +43,10 @@ class PitchesController < ApplicationController
       @upvote = Upvote.new
       @upvote.user_id = current_user.id
       @upvote.pitch_id = params[:id]
-  
-      respond_to do |format|
-        format.html { redirect_to pitches_path}# new.html.erb
-        format.json { render json: @upvote }
+      if @upvote.save
+       flash.now[:notice] = 'Upvote was successfully created.'
+       redirect_to pitches_path
       end
-
-    else
       redirect_to pitches_path, notice: 'Bro, you best log in first'
     end
   end

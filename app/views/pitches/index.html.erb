@@ -16,7 +16,7 @@
 
 <% @pitches.each do |pitch| %>
   <tr>
-  	<td><%= link_to 'upboat', upboats_path(pitch) %></td>
+  	<td><%= link_to 'upboat', upboats(pitch) %></td>
   	<td><%= pitch.upvotes.count %></td>
   	<td><%= pitch.user_id %></td>
     <td><%= pitch.name %></td>
